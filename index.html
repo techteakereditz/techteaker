@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tech Teaker Editz</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 body{background:#000;color:#fff;overflow-x:hidden;scroll-behavior:smooth;}
 
-/* GOLD GLOW BACKGROUND */
 body::before{
 content:"";
 position:fixed;
@@ -19,65 +19,131 @@ background:radial-gradient(circle,#d4af37aa,transparent 70%);
 top:-200px;left:-200px;
 animation:float 8s infinite alternate ease-in-out;
 z-index:-1;}
+
 @keyframes float{to{transform:translate(300px,200px);}}
 
 /* NAVBAR */
+
 header{display:flex;justify-content:space-between;padding:20px 10%;background:#000;}
 header h2{color:#d4af37;}
+
 nav a{color:#fff;margin-left:25px;text-decoration:none;}
 nav a:hover{color:#d4af37;}
 
 section{padding:80px 10%;}
 
 /* HERO */
+
 .hero{text-align:center;}
+
 .hero h1{
 font-size:60px;
 background:linear-gradient(45deg,#d4af37,#fff);
--webkit-background-clip:text;color:transparent;
+-webkit-background-clip:text;
+color:transparent;
 animation:fade 2s;}
-@keyframes fade{from{opacity:0;transform:translateY(50px);}to{opacity:1;}}
+
+@keyframes fade{
+from{opacity:0;transform:translateY(50px);}
+to{opacity:1;}
+}
+
+.hero p{
+margin-top:15px;
+font-size:18px;
+color:#ccc;
+}
 
 .btn{
-padding:14px 35px;border-radius:30px;
-margin:15px;text-decoration:none;font-weight:600;
-display:inline-block;transition:.3s;}
+padding:14px 35px;
+border-radius:30px;
+margin:15px;
+text-decoration:none;
+font-weight:600;
+display:inline-block;
+transition:.3s;
+}
+
 .gold{background:#d4af37;color:#000;}
 .outline{border:2px solid #d4af37;color:#d4af37;}
+
 .btn:hover{transform:scale(1.1);}
 
 /* CARDS */
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;margin-top:40px;}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+margin-top:40px;
+}
+
 .card{
-background:#111;padding:30px;border-radius:15px;
-transition:.4s;}
+background:#111;
+padding:20px;
+border-radius:15px;
+transition:.4s;
+}
+
 .card:hover{
 transform:translateY(-10px);
-box-shadow:0 0 25px #d4af37;}
+box-shadow:0 0 25px #d4af37;
+}
 
 /* PRICING */
-.pricing{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;}
+
+.pricing{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
 .price-card{
-background:#111;padding:40px;text-align:center;
-border-radius:15px;transition:.4s;}
-.price-card:hover{box-shadow:0 0 30px #d4af37;}
-.price{font-size:45px;color:#d4af37;margin:20px 0;}
+background:#111;
+padding:40px;
+text-align:center;
+border-radius:15px;
+transition:.4s;
+}
+
+.price-card:hover{
+box-shadow:0 0 30px #d4af37;
+}
+
+.price{
+font-size:45px;
+color:#d4af37;
+margin:20px 0;
+}
+
+/* SOCIAL */
 
 .social a{
-display:inline-block;margin:15px;
-padding:15px 30px;border:2px solid #d4af37;
-border-radius:30px;color:#d4af37;text-decoration:none;}
-.social a:hover{background:#d4af37;color:#000;}
+display:inline-block;
+margin:15px;
+padding:15px 30px;
+border:2px solid #d4af37;
+border-radius:30px;
+color:#d4af37;
+text-decoration:none;
+}
 
-input,textarea{
-width:100%;padding:12px;margin:10px 0;
-background:#111;border:1px solid #333;color:#fff;border-radius:8px;}
+.social a:hover{
+background:#d4af37;
+color:#000;
+}
 
-button{
-padding:12px 25px;background:#d4af37;border:none;
-border-radius:25px;font-weight:600;cursor:pointer;}
+footer{
+background:#000;
+padding:40px;
+text-align:center;
+color:#aaa;
+}
 
-footer{background:#000;padding:40px;text-align:center;color:#aaa;}
+iframe{
+border:none;
+border-radius:10px;
+}
 </style>
 </head>
 
@@ -85,6 +151,7 @@ footer{background:#000;padding:40px;text-align:center;color:#aaa;}
 
 <header>
 <h2>TECH TEAKER EDITZ</h2>
+
 <nav>
 <a href="#home">Home</a>
 <a href="#services">Services</a>
@@ -94,73 +161,140 @@ footer{background:#000;padding:40px;text-align:center;color:#aaa;}
 </header>
 
 <section class="hero" id="home">
+
 <h1>TECH TEAKER EDITZ</h1>
-<p>Professional Video Editing for Shorts, Reels & Car Edits</p>
+
+<p>Professional Reels & Shorts Video Editor</p>
+
+<p>Helping creators grow faster with high-quality engaging edits 🚀</p>
+
+<p style="color:#d4af37;margin-top:10px;">
+Fast Delivery ⚡ • High Quality • Creator Friendly Pricing
+</p>
+
 <a href="#portfolio" class="btn gold">View My Work</a>
-<a href="#contact" class="btn outline">Get in Touch</a>
+
+<a href="mailto:avadhutmane2010@gmail.com?subject=Hiring%20Inquiry" class="btn outline">
+Hire Me
+</a>
+
 </section>
 
 <section id="services">
+
 <h2>Services</h2>
+
 <div class="cards">
+
 <div class="card">Car Edits</div>
+
 <div class="card">Shorts Editing</div>
-<div class="card">Functional Edits</div>
-<div class="card">Reels & Social Content</div>
+
+<div class="card">Reels Editing</div>
+
+<div class="card">Social Media Content</div>
+
 </div>
+
 </section>
 
 <section id="portfolio">
+
 <h2>Portfolio</h2>
+
 <div class="cards">
+
 <div class="card">
-<h3>Featured Reel</h3>
+<iframe src="https://www.instagram.com/reel/DTditvpjmwu/embed" width="100%" height="400"></iframe>
+</div>
+
+<div class="card">
+<iframe src="https://www.instagram.com/reel/DUtN4qcDy1m/embed" width="100%" height="400"></iframe>
+</div>
+
+<div class="card">
 <iframe src="https://www.instagram.com/reel/DVGN5MVDY9K/embed" width="100%" height="400"></iframe>
 </div>
+
 </div>
+
 </section>
 
 <section>
+
 <h2>Pricing Plans</h2>
+
+<p style="color:#d4af37;margin-top:10px;">
+Fast Delivery Available ⚡
+</p>
+
+<p style="margin-bottom:30px;color:#ccc;">
+All prices are negotiable depending on project complexity and creator needs.
+</p>
+
 <div class="pricing">
+
 <div class="price-card">
-<h3>Basic</h3>
-<div class="price">₹60</div>
-<a href="#contact" class="btn gold">Get Started</a>
+<h3>Shorts Pack</h3>
+<div class="price">₹1500</div>
+<p>5 High Quality Shorts</p>
+<p>Trending memes, smooth cuts, subtitles, and engaging edits.</p>
+<a href="mailto:avadhutmane2010@gmail.com" class="btn gold">Hire</a>
 </div>
 
 <div class="price-card">
-<h3>Professional</h3>
-<div class="price">₹100</div>
-<a href="#contact" class="btn gold">Get Started</a>
+<h3>Long Video Edit</h3>
+<div class="price">₹1000</div>
+<p>1 Long Video Edit</p>
+<p>Professional editing, transitions, sound effects, and cinematic feel.</p>
+<a href="mailto:avadhutmane2010@gmail.com" class="btn gold">Hire</a>
 </div>
 
 <div class="price-card">
-<h3>Premium</h3>
-<div class="price">₹150</div>
-<a href="#contact" class="btn gold">Get Started</a>
+<h3>Premium Reel</h3>
+<div class="price">₹400</div>
+<p>Single High Quality Reel</p>
+<p>Fast paced editing, memes, effects, captions, and viral style editing.</p>
+<a href="mailto:avadhutmane2010@gmail.com" class="btn gold">Hire</a>
 </div>
+
 </div>
+
 </section>
 
 <section class="social">
+
 <h2>Connect With Me</h2>
+
 <a href="https://www.instagram.com/techteaker.editz" target="_blank">Instagram</a>
+
 <a href="http://www.youtube.com/@TechTeakerEditz" target="_blank">YouTube</a>
+
 </section>
 
 <section id="contact">
-<h2>Get in Touch</h2>
-<form action="mailto:avadhutmane2010@gmail.com" method="post" enctype="text/plain">
-<input type="text" placeholder="Name" required>
-<input type="email" placeholder="Email" required>
-<textarea rows="5" placeholder="Message"></textarea>
-<button type="submit">Send Message</button>
-</form>
+
+<h2>Contact</h2>
+
+<p style="margin-top:20px;">
+For business inquiries or hiring, send an email.
+</p>
+
+<br>
+
+<a href="mailto:avadhutmane2010@gmail.com?subject=Hiring%20Inquiry" class="btn gold">
+Email Me
+</a>
+
 </section>
 
 <footer>
 © 2026 TECH TEAKER EDITZ
+
+<p style="margin-top:10px;color:#777;">
+Business inquiries: avadhutmane2010@gmail.com
+</p>
+
 </footer>
 
 </body>
