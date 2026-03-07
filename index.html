@@ -1,48 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Tech Teaker Editz | Video Editing</title>
+<title>Tech Teaker Editz</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins}
 
 body{
-background:#0b0b0b;
-color:white;
-scroll-behavior:smooth;
+background:#ffffff;
+color:#111;
 overflow-x:hidden;
+scroll-behavior:smooth;
 }
 
-/* animated gold glow */
+/* cursor */
 
-body::before{
-content:"";
+.cursor{
 position:fixed;
-width:900px;
-height:900px;
-background:radial-gradient(circle,#d4af37aa,transparent 70%);
-top:-200px;
-left:-200px;
-animation:moveGlow 10s infinite alternate;
-z-index:-1;
+width:14px;
+height:14px;
+background:white;
+border-radius:50%;
+box-shadow:0 0 15px white;
+pointer-events:none;
+z-index:9999;
 }
 
-@keyframes moveGlow{
-to{
-transform:translate(400px,300px);
+.particle{
+position:fixed;
+width:6px;
+height:6px;
+background:white;
+border-radius:50%;
+opacity:.8;
+pointer-events:none;
+animation:fade .7s forwards;
 }
+
+@keyframes fade{
+to{opacity:0;transform:scale(.2)}
 }
 
 /* navbar */
@@ -50,71 +52,66 @@ transform:translate(400px,300px);
 header{
 display:flex;
 justify-content:space-between;
-align-items:center;
 padding:20px 10%;
-background:#000;
+background:white;
+box-shadow:0 3px 10px rgba(0,0,0,.08);
 position:sticky;
 top:0;
 z-index:100;
 }
 
 header h2{
-color:#d4af37;
-font-weight:800;
-}
-
-nav a{
-color:white;
-margin-left:25px;
-text-decoration:none;
-transition:0.3s;
-}
-
-nav a:hover{
-color:#d4af37;
+font-weight:700;
 }
 
 /* hero */
 
 .hero{
+height:100vh;
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
 text-align:center;
-padding:120px 10%;
+color:white;
+overflow:hidden;
+}
+
+.hero video{
+position:absolute;
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.hero::after{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.55);
+}
+
+.hero-content{
+position:relative;
+z-index:2;
 }
 
 .hero h1{
 font-size:60px;
-background:linear-gradient(45deg,#d4af37,#fff);
--webkit-background-clip:text;
-color:transparent;
 }
 
 .hero p{
-margin-top:15px;
-opacity:0.8;
+margin-top:10px;
+font-size:18px;
 }
 
-.btn{
-display:inline-block;
-padding:14px 35px;
-margin-top:25px;
-border-radius:30px;
-text-decoration:none;
-font-weight:600;
-transition:0.3s;
-}
-
-.gold{
-background:#d4af37;
-color:#000;
-}
-
-.outline{
-border:2px solid #d4af37;
-color:#d4af37;
-}
-
-.btn:hover{
-transform:scale(1.1);
+.scroll{
+position:absolute;
+bottom:40px;
+right:40px;
+font-size:14px;
+opacity:.8;
 }
 
 /* sections */
@@ -124,117 +121,140 @@ padding:90px 10%;
 text-align:center;
 }
 
-h2{
-font-size:35px;
-margin-bottom:40px;
-}
-
 /* cards */
 
 .cards{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+gap:25px;
 }
 
 .card{
-background:#111;
-padding:30px;
-border-radius:15px;
-transition:0.4s;
+background:#f4f6ff;
+padding:35px;
+border-radius:16px;
+position:relative;
+overflow:hidden;
+transition:.4s;
+}
+
+.card::before{
+content:"";
+position:absolute;
+width:200%;
+height:200%;
+background:linear-gradient(45deg,#6b8cff,#b28cff);
+top:-160%;
+left:-160%;
+opacity:.15;
+transition:.5s;
+}
+
+.card:hover::before{
+top:-40%;
+left:-40%;
 }
 
 .card:hover{
-transform:translateY(-10px);
-box-shadow:0 0 25px #d4af37;
-}
-
-/* stats */
-
-.stats{
-display:flex;
-justify-content:center;
-gap:80px;
-flex-wrap:wrap;
-}
-
-.stat h3{
-font-size:40px;
-color:#d4af37;
+transform:translateY(-8px) scale(1.03);
 }
 
 /* portfolio */
+
+.portfolio{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
 
 iframe{
 border:none;
 border-radius:12px;
 }
 
-/* pricing */
+/* reviews */
 
-.pricing{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
+.review-box{
+max-width:700px;
+margin:auto;
 }
 
-.price-card{
-background:#111;
-padding:40px;
-border-radius:15px;
-transition:0.4s;
+.review-box img{
+width:90px;
+height:90px;
+border-radius:50%;
+margin-bottom:15px;
+object-fit:cover;
 }
 
-.price-card:hover{
-box-shadow:0 0 30px #d4af37;
+.review-text{
+font-size:18px;
+margin-bottom:10px;
 }
 
-.price{
-font-size:40px;
-color:#d4af37;
-margin:15px 0;
+.arrows button{
+border:none;
+background:#6b8cff;
+color:white;
+padding:10px 18px;
+margin:8px;
+border-radius:50%;
+font-size:18px;
+cursor:pointer;
 }
 
-/* testimonials */
+/* hire */
 
-.testimonials{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
+.hire button{
+padding:16px 40px;
+border:none;
+background:#ff6a6a;
+color:white;
+font-size:18px;
+border-radius:40px;
+cursor:pointer;
 }
 
-.test{
-background:#111;
-padding:25px;
-border-radius:12px;
-opacity:0.9;
+.road{
+margin-top:60px;
+height:120px;
+position:relative;
+display:none;
 }
 
-/* contact */
+.car{
+width:80px;
+height:40px;
+background:#ff6a6a;
+border-radius:10px;
+position:absolute;
+left:-120px;
+bottom:30px;
+transition:4s linear;
+}
 
-.contact a{
-margin:15px;
-display:inline-block;
-padding:15px 30px;
-border:2px solid #d4af37;
-border-radius:30px;
-color:#d4af37;
+.drop{
+position:absolute;
+bottom:70px;
+display:none;
+}
+
+.drop a{
+padding:12px 22px;
+background:#6b8cff;
+color:white;
+border-radius:25px;
 text-decoration:none;
-}
-
-.contact a:hover{
-background:#d4af37;
-color:#000;
 }
 
 /* footer */
 
 footer{
-background:#000;
-padding:40px;
+background:#111;
+color:white;
+padding:50px;
 text-align:center;
-color:#aaa;
-margin-top:50px;
+margin-top:80px;
 }
 
 </style>
@@ -242,195 +262,204 @@ margin-top:50px;
 
 <body>
 
+<div class="cursor"></div>
+
 <header>
-
 <h2>TECH TEAKER EDITZ</h2>
-
-<nav>
-<a href="#services">Services</a>
-<a href="#portfolio">Portfolio</a>
-<a href="#pricing">Pricing</a>
-<a href="#contact">Contact</a>
-</nav>
-
 </header>
 
+<!-- HERO -->
 
 <section class="hero">
 
-<h1>Professional Video Editing</h1>
+<video autoplay muted loop>
+<source src="https://cdn.coverr.co/videos/coverr-editing-video-on-laptop-9725/1080p.mp4">
+</video>
 
-<p>Helping creators grow with viral reels, meme edits and cinematic videos.</p>
+<div class="hero-content">
+<h1>Creative Video Editing</h1>
+<p>Gaming • Reels • Cinematic Edits</p>
+</div>
 
-<a href="#portfolio" class="btn gold">View Portfolio</a>
-
-<a href="mailto:avadhutmane2010@gmail.com" class="btn outline">Hire Me</a>
+<div class="scroll">scroll ↓ to hire</div>
 
 </section>
 
+<!-- SERVICES -->
 
 <section>
-
-<h2>Creator Stats</h2>
-
-<div class="stats">
-
-<div class="stat">
-<h3>100+</h3>
-<p>Videos Edited</p>
-</div>
-
-<div class="stat">
-<h3>20+</h3>
-<p>Creators Helped</p>
-</div>
-
-<div class="stat">
-<h3>Fast</h3>
-<p>Delivery</p>
-</div>
-
-</div>
-
-</section>
-
-
-<section id="services">
 
 <h2>Services</h2>
 
 <div class="cards">
 
 <div class="card">🔥 Viral Reel Editing</div>
-
 <div class="card">⚡ Meme Style Editing</div>
-
 <div class="card">🎬 Cinematic Video Edits</div>
-
 <div class="card">📱 YouTube Shorts Editing</div>
 
 </div>
 
 </section>
 
-
-<section id="portfolio">
-
-<h2>Portfolio</h2>
-
-<div class="cards">
-
-<iframe src="https://www.instagram.com/reel/DTditvpjmwu/embed" width="100%" height="400"></iframe>
-
-<iframe src="https://www.instagram.com/reel/DUtN4qcDy1m/embed" width="100%" height="400"></iframe>
-
-<iframe src="https://www.instagram.com/reel/DVGN5MVDY9K/embed" width="100%" height="400"></iframe>
-
-</div>
-
-</section>
-
-
-<section id="pricing">
-
-<h2>Pricing</h2>
-
-<div class="pricing">
-
-<div class="price-card">
-
-<h3>Shorts Package</h3>
-
-<div class="price">₹1500</div>
-
-<p>5 High Quality Shorts</p>
-
-<p>Meme edits, captions, effects</p>
-
-<p><b>Price Negotiable</b></p>
-
-</div>
-
-
-<div class="price-card">
-
-<h3>Big Video Edit</h3>
-
-<div class="price">₹1000</div>
-
-<p>1 Long Form Video</p>
-
-<p>Cuts, transitions, subtitles</p>
-
-<p><b>Price Negotiable</b></p>
-
-</div>
-
-
-<div class="price-card">
-
-<h3>Creator Package</h3>
-
-<div class="price">Custom</div>
-
-<p>Reels + memes + viral editing</p>
-
-<p>Best for growing creators</p>
-
-<p><b>Price Negotiable</b></p>
-
-</div>
-
-</div>
-
-</section>
-
+<!-- PORTFOLIO -->
 
 <section>
 
-<h2>Client Feedback</h2>
+<h2>Portfolio</h2>
 
-<div class="testimonials">
+<div class="portfolio">
 
-<div class="test">
-Amazing edits and very fast delivery.
+<iframe src="https://www.instagram.com/reel/DTditvpjmwu/embed" height="400"></iframe>
+
+<iframe src="https://www.instagram.com/reel/DUtN4qcDy1m/embed" height="400"></iframe>
+
+<iframe src="https://www.instagram.com/reel/DVGN5MVDY9K/embed" height="400"></iframe>
+
 </div>
 
-<div class="test">
-My reels engagement increased after these edits.
-</div>
+</section>
 
-<div class="test">
-Clean subtitles and professional style.
+<!-- REVIEWS -->
+
+<section>
+
+<h2>Client Reviews</h2>
+
+<div class="review-box">
+
+<img id="rimg" src="https://images.unsplash.com/photo-1593640495393-e3f9c0c2b8b8">
+
+<p id="rtext" class="review-text">
+The gaming montage edit was extremely smooth and professional. Every transition matched the beat perfectly and the pacing kept the whole video exciting. After posting the edited reel my engagement increased and viewers watched till the end.
+</p>
+
+<p id="rname">Shadow Gamer</p>
+
+<div class="arrows">
+<button onclick="prev()">❮</button>
+<button onclick="next()">❯</button>
 </div>
 
 </div>
 
 </section>
 
+<!-- HIRE -->
 
-<section id="contact">
+<section class="hire">
 
-<h2>Get In Touch</h2>
+<h2>Hire Me</h2>
 
-<p>If you want professional edits for your content</p>
+<button onclick="startCar()">Hire Me</button>
 
-<div class="contact">
+<div class="road" id="road">
 
-<a href="mailto:avadhutmane2010@gmail.com">Hire Me</a>
+<div class="car" id="car"></div>
 
+<div class="drop" id="email" style="left:35%">
+<a href="mailto:avadhutmane2010@gmail.com">Email</a>
+</div>
+
+<div class="drop" id="insta" style="left:65%">
 <a href="https://www.instagram.com/techteaker.editz">Instagram</a>
+</div>
 
 </div>
 
 </section>
-
 
 <footer>
 
-© 2026 TECH TEAKER EDITZ
+<p>
+Need a creative portfolio website like this?  
+DM me on Instagram — I build custom creator websites at very affordable prices.
+</p>
+
+<br>
+
+<p style="opacity:.7">
+Designed creatively with help from ChatGPT ✨
+</p>
 
 </footer>
+
+<script>
+
+/* cursor */
+
+const cursor=document.querySelector(".cursor")
+
+document.addEventListener("mousemove",e=>{
+cursor.style.left=e.clientX+"px"
+cursor.style.top=e.clientY+"px"
+
+const p=document.createElement("div")
+p.className="particle"
+p.style.left=e.clientX+"px"
+p.style.top=e.clientY+"px"
+document.body.appendChild(p)
+
+setTimeout(()=>p.remove(),700)
+})
+
+/* reviews */
+
+const reviews=[
+{
+img:"https://images.unsplash.com/photo-1593640495393-e3f9c0c2b8b8",
+text:"The gaming montage edit was extremely smooth and professional. Every transition matched the beat perfectly and the pacing kept the whole video exciting. After posting the edited reel my engagement increased a lot.",
+name:"Shadow Gamer"
+},
+{
+img:"https://images.unsplash.com/photo-1518770660439-4636190af475",
+text:"The RGB keyboard themed gaming edit looked fantastic. Effects synced perfectly with the music and the visual style felt very professional. My audience really enjoyed the final video.",
+name:"Arjun Plays"
+},
+{
+img:"https://images.unsplash.com/photo-1587202372775-e229f172b9d7",
+text:"Amazing editing quality with smooth cuts and meme timing. The reel felt very engaging and viewers watched till the end. Definitely recommending Tech Teaker Editz.",
+name:"Creator Dev"
+},
+{
+img:"https://randomuser.me/api/portraits/men/52.jpg",
+text:"Very creative editing with cinematic transitions. Delivery was fast and the final reel looked extremely polished. I will definitely work again for future edits.",
+name:"Tech Vlogger"
+}
+]
+
+let i=0
+
+function show(){
+document.getElementById("rimg").src=reviews[i].img
+document.getElementById("rtext").innerText=reviews[i].text
+document.getElementById("rname").innerText=reviews[i].name
+}
+
+function next(){i=(i+1)%reviews.length;show()}
+function prev(){i=(i-1+reviews.length)%reviews.length;show()}
+
+/* car animation */
+
+function startCar(){
+
+document.getElementById("road").style.display="block"
+
+const car=document.getElementById("car")
+
+setTimeout(()=>{car.style.left="120%"},200)
+
+setTimeout(()=>{
+document.getElementById("email").style.display="block"
+},1500)
+
+setTimeout(()=>{
+document.getElementById("insta").style.display="block"
+},3000)
+
+}
+
+</script>
 
 </body>
 </html>
